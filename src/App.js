@@ -11,12 +11,16 @@ const App = () => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(data);
+    if (data.password.length < 5) {
+      alert("provide must be more than 5 characters");
+    } else {
+      console.log(data);
+    }
   };
   return (
     <div className="App">
       <center>
-        <form>
+        <form onSubmit={submitHandler}>
           <label> Email </label>
           <input
             type="email"
@@ -30,7 +34,7 @@ const App = () => {
             onChange={changeHandler}
           />{" "}
           <br /> <br />
-          <input type="submit" value="Login" onSubmit={submitHandler} />
+          <input type="submit" value="Login" />
         </form>
       </center>
     </div>
